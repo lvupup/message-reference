@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package Client;
+import "Google/timestamp.proto";
+
+message Todo {
+  int64 Id = 1;
+  string Title = 2;
+  string Description = 3;
+  bool IsCompleted = 4;
+  repeated TodoItem Items = 5;
+  google.protobuf.Timestamp DateCreated = 6;
+  google.protobuf.Timestamp DateUpdated = 7;
+}
+
+message TodoItem {
+  string Title = 1;
+  bool IsCompleted = 2;
+}
+
+message TodoResponse {
+  Todo Todo = 1;
+  string Code = 2;
+}
+
+message CreateTodoResponse {
+  int64 TodoId = 1;
+  string Code = 2;
+}
