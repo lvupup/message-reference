@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package Common;
+option csharp_namespace = "RexBet.Message.Common";
+import "Google/timestamp.proto";
+
+message PKeyString {
+  string Value =1;
+}
+
+message ResponseBase {
+  string Code = 1;
+}

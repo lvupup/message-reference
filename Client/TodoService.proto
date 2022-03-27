@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package Client;
+import "Client/TodoMessage.proto";
+import "Common/CommonMessage.proto";
+import "Google/empty.proto";
+
+service TodoService {
+  rpc GetTodos(google.protobuf.Empty) returns (stream Todo);
+  rpc GetTodo(Common.PKeyString) returns (TodoResponse);
+  rpc CreateTodo(Todo) returns (CreateTodoResponse);
+  rpc UpdateTodo(Todo) returns (Common.ResponseBase);
+  rpc DeleteTodo(Common.PKeyString) returns (Common.ResponseBase);
+  rpc BatchCreateTodo(stream Todo) returns (stream Common.PKeyString);
+  rpc BatchDeleteTodo(stream Common.PKeyString) returns (Common.ResponseBase);
+}
